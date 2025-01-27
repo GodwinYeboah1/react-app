@@ -1,6 +1,8 @@
 import { useState, MouseEventHandler } from "react";
 import  "./ListGroup.css";
 import styled from "styled-components";
+import { FaBeer , FaCity } from 'react-icons/fa';
+
 
 const List = styled.ul`
   list-style: none;
@@ -30,7 +32,7 @@ function ListGroup({items, heading, onSelectedItem}: Props) {
      
   return (
     <>
-      <h1>{heading}</h1>
+      <h1>{heading} <FaCity color="red" size={100}/></h1>
       { getMessage()}
       <List>
         {items.map((city, index) => (
@@ -45,7 +47,7 @@ function ListGroup({items, heading, onSelectedItem}: Props) {
                 {city}
             </ListItem>
         ))}
-      </List  >
+      </List>
     </>
   );
 }

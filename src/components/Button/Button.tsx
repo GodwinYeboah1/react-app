@@ -1,5 +1,7 @@
 import {ReactNode, useState} from 'react'
-import Alert from './Alert';
+import Alert from '../Alert';
+import styled from './Button.module.css';
+
 interface Props {
     children: ReactNode;
     // Union type
@@ -8,10 +10,16 @@ interface Props {
 }
 
 
+
 const Button = ({children, color = 'primary', onCLick}: Props) => {
   return (
   <>
-    <button type="button" className={"btn btn-" + color} onClick={()=> onCLick()}>{children}</button>
+    <button 
+      type="button"
+      className={[styled.btn , 'btn-' + color].join(' ')}
+      onClick={()=> onCLick()}>
+      {children}
+      </button>
   </>
   )
 }

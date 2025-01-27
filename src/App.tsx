@@ -11,14 +11,14 @@ function App() {
 
   return ( 
     <>
-    {
+    {/* {
       alertVisibility && 
       <Alert onclick={ ()=> setalertVisibility(false)}/>
     }
      <Button 
      onCLick={()=> setalertVisibility(true)}>
         Click me !
-      </Button>
+      </Button> */}
       <ListGroup 
       items={cities} 
       heading="Cities" 

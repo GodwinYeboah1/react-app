@@ -1,14 +1,24 @@
 import React, { FormEvent, useRef } from 'react'
 import { FieldValues, useForm } from 'react-hook-form';
+import {z} from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+
+const schema = z.object({
+  name: z.string().nonempty(),
+  age: z.number().int().positive()
+})
+
+type User = z.infer<typeof schema>;
 
 export const Form = () => {
+
 
   // const nameRef = useRef<HTMLInputElement>(null);
   // const ageRef = useRef<HTMLInputElement>(null);
   // const user = {name: '', age: 0};
   const [user , setUser] = React.useState({name: '', age: ''});
 
-  const {register, handleSubmit} = useForm();
+  const {register, handleSubmit} = useForm()<User>(f);
   const onSubmit = (data: FieldValues)=> {
     console.log('submitted', data);
   }
